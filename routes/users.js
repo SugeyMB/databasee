@@ -1,5 +1,11 @@
 const {Router} = require ('express')
-const{listUsers,listUsersByID, addUser, updateUser,deteleUsers}=require('../controllers/users');
+const{
+    listUsers,
+    listUsersByID, 
+    addUser, 
+    updateUser,
+    deteleUsers, 
+    singInUser}=require('../controllers/users');
 
 
 const router =Router();
@@ -9,7 +15,7 @@ const router =Router();
 //http://localhost:3000/api/v1/users/3
 router.get('/', listUsers);
 router.get('/:id', listUsersByID);
-//router.post('/', listUsers);
+router.post('/', singInUser);
 router.put('/', addUser);
 //mi modificacion
 router.patch('/:id', updateUser);  ///MI MODIFCACION.
