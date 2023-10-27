@@ -78,8 +78,11 @@ const addUser = async (req = request, res =response)=>{
         res.status(400).json ({msg: 'Missing information'});
         return;
     }
+
+    let passwordHash
+    if (password){
     const saltRounds = 10;
-    const passwordHash = await bcrypt.hash(password, saltRounds);
+    passwordHash = await bcrypt.hash(password, saltRounds); }
 
     const user = [
       username,
